@@ -22,7 +22,7 @@ const Item = () => {
     };getData();
 
 
- },[])
+ },[id])
 
  if(!data){
     return <h1>

@@ -3,6 +3,7 @@ import Card from "./components/Card";
 import Header from "./components/Header";
 import {Routes,Route} from 'react-router-dom'
 import Item from "./components/Item";
+import Cart from "./components/Cart";
 
 function App() {
   const [data, setData] = useState([]);
@@ -24,24 +25,27 @@ function App() {
 
   return (
     <div>
-      <Header />
+   
+        <Header />
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div className="p-8">
-              <div className="mt-10 min-h-screen p-10 flex flex-wrap gap-8">
-                {data.map((item) => (
-                  <Card key={item.id} item={item} />
-                ))}
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div className="p-8">
+                <div className="mt-10 min-h-screen p-10 flex flex-wrap gap-8">
+                  {data.map((item) => (
+                    <Card key={item.id} item={item} />
+                  ))}
+                </div>
               </div>
-            </div>
-          }
-        />
+            }
+          />
 
-        <Route path="/item/:id" element={<Item />} />
-      </Routes>
+          <Route path="/item/:id" element={<Item />} />
+          <Route path="/cart" element={<Cart/>} />
+        </Routes>
+   
     </div>
   );
 }
