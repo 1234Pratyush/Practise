@@ -1,33 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Card from "./components/Card";
 import Header from "./components/Header";
 import {Routes,Route} from 'react-router-dom'
 import Item from "./components/Item";
 import Cart from "./components/Cart";
+import { DataContext } from "./context/CartContext";
 
 function App() {
-  const [data, setData] = useState([]);
 
-
-  useEffect(()=>{
-  const getData = async () => {
-    try {
-      const response = await fetch("https://fakestoreapi.com/products");
-      const result = await response.json();
-      console.log(result);
-      setData(result);
-    } catch (error) {
-      console.log("error", error.message);
-    }
-  }; getData()
-  },[])
-
+const {data} = useContext(DataContext);
 
   return (
     <div>
-   
-        <Header />
-
+  <Header />
         <Routes>
           <Route
             path="/"
@@ -41,11 +26,9 @@ function App() {
               </div>
             }
           />
-
           <Route path="/item/:id" element={<Item />} />
           <Route path="/cart" element={<Cart/>} />
-        </Routes>
-   
+       </Routes> 
     </div>
   );
 }

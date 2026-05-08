@@ -1,10 +1,15 @@
 import React, { useContext } from "react";
 import { DataContext } from "../context/CartContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
       const data = useContext(DataContext);
+      const {cart} = useContext(DataContext);
+      
+
       console.log(data);
+      
 
   return (
     <div className="border h-20 px-10 flex items-center justify-between bg-white shadow">
@@ -14,14 +19,20 @@ const Header = () => {
         <p className="cursor-pointer hover:text-cyan-600">Home</p>
         <p className="cursor-pointer hover:text-cyan-600">Products</p>
         <p className="cursor-pointer hover:text-cyan-600">About</p>
+        <p className="cursor-pointer hover:text-cyan-600">{data.name}</p>
+        <p className="cursor-pointer hover:text-cyan-600">{data.age}</p>
       </div>
 
-      <div className="relative cursor-pointer">
-        User : <span className="font-bold text-xl"> {data}</span>
+      <div className="relative cursor-pointer flex items-center gap-6">
+         <span className="font-bold"> {data.name}</span>
         <span
           className="absolute -top-2 -right-3 
           text-xl px-1 py-0.5 rounded-full"
         ></span>
+        {"    "}
+        <Link to="/cart">
+          <span className="font-bold text-xl">🛒 <span>{cart.length}</span></span>
+        </Link>
       </div>
     </div>
   );

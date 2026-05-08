@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useContext} from "react";
 import { useParams } from "react-router-dom";
+import { DataContext } from "../context/CartContext";
 
 const Item = () => {
 
   const [data,setData] = useState(null);
   const {id} = useParams();
+
+   const { addToCart } = useContext(DataContext);
+   console.log(addToCart)
 
 
  useEffect(()=>{
@@ -53,7 +57,7 @@ const Item = () => {
 
           <p className="text-xl font-semibold">{data.price}</p>
 
-          <button className="bg-black text-white px-4 py-2 rounded cursor-pointer">
+          <button className="bg-black text-white px-4 py-2 rounded cursor-pointer" onClick={()=>addToCart(data)}>
             Add to cart
           </button>
         </div>
