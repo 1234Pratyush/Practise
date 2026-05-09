@@ -1,58 +1,81 @@
-import React, { useState } from "react";
+import React, {  useState } from 'react'
 
 const Form = () => {
-  
-    const [title,setTitle]  = useState('')
-    const [description,setDescription] = useState('')
 
-   const submitHandler  = (e)=>{
-    e.preventDefault()  
-    console.log(title)
-    console.log(description)
-    setTitle('');
-    setDescription('');
-   
-   }
+    const [data, setData] = useState({
+      name: "",
+      email: "",
+      password: "",
+      description: "",
+    });
 
-  return (
-    <div className="mt-2 p-8 min-h-screen bg-zinc-900 text-white">
-      <form onSubmit={submitHandler}>
-        <div className="flex flex-col gap-2">
-          <input
-            type="text"
-            className=" border-2 w-60 h-10 rounded p-2"
-            placeholder="Enter notes heading"
-            required    
-            value={title}
-            
-            onChange={(e)=>setTitle(e.target.value)}
-
-          />
-          <input
-            type="text"
-            className="  border-2 rounded w-60 h-40 p-2 "
-            placeholder="write details"
-            value={description}
-            onChange={(e)=>setDescription(e.target.value)}
-         
-           
-          />
-          <button className=" w-20 rounded px-2 py-2 cursor-pointer bg-blue-700">
-            Submit
-          </button>
-        </div>
-      </form>
+    const [errors,setErrors] = useState({})
 
 
-      <div
-  className="border-2 rounded bg-white w-80 h-50 mt-10 text-black"       >
-     {
-        title
+     const formHandler = (e)=>{
+        setData({
+          ...data,
+          [e.target.name]: e.target.value,
+        });
      }
 
+  const submitHandler = (e)=>{
+             e.preventDefault()
+             setData({
+               name: "",
+               email: "",
+               password: "",
+               description: "",
+             });
+             console.log(data);
+  }
+
+  return (
+    <div className="min-h-screen bg-zinc-900 text-white p-10">
+      <div>
+        <form
+          onSubmit={submitHandler}
+          className="flex flex-col  w-70 p-2 rounded gap-2"
+        >
+          <input
+            type="text"
+            placeholder="Enter name"
+            name='name'
+            value={data.name}
+            onChange={formHandler}
+            className=" rounded p-2 bg-zinc-700 outline-none w-60"
+          />
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={data.email}
+            name='email'
+            onChange={formHandler}
+            className=" rounded p-2 bg-zinc-700 outline-none w-60"
+          />
+          <input
+            type="password"
+            placeholder="Enter password"
+            name='password'
+            value={data.password}
+            onChange={formHandler}
+            className=" rounded p-2 bg-zinc-700 outline-none w-60"
+          />
+          <input
+            type="text"
+            placeholder="Enter description"
+            name='description'
+            value={data.description}
+            onChange={formHandler}
+            className=" rounded p-2 bg-zinc-700 outline-none w-60"
+          />
+          <button className=" w-20 rounded bg-blue-600 cursor-pointer hover:bg-blue-700 p-2 ">
+            submit
+          </button>
+        </form>
       </div>
     </div>
   );
-};
+}
 
-export default Form;
+export default Form

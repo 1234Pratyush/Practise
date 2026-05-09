@@ -2,6 +2,9 @@ import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
     
 export const DataContext =createContext();
+const username = "coalition";
+const password = "skills-test";
+const auth = btoa(`${username}:${password}`);
 
 const CartContext = (props) => {
 
@@ -17,7 +20,15 @@ const [cart,setCart] = useState([]);
  useEffect(()=>{
  const getData = async()=>{
   try{
-        const result = await axios.get("https://fakestoreapi.com/products");
+        const result = await axios.get(
+          "https://fedskillstest.coalitiontechnologies.workers.dev",{
+
+             headers: {
+        Authorization: `Basic ${auth}`,
+             }  
+          }
+        );
+        console.log(result.data);
         setData(result.data);
     }
     catch(error){
