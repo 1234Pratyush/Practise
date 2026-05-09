@@ -11,7 +11,6 @@ const [cart,setCart] = useState([]);
  const [increment,setIncrement] = useState(0);
 
  const addValue = ()=>{
-        
      setIncrement(increment + 1);
  }
 

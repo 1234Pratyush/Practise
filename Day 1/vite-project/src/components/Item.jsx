@@ -8,7 +8,7 @@ const Item = () => {
   const {id} = useParams();
 
    const { addToCart } = useContext(DataContext);
-   console.log(addToCart)
+ 
 
 
  useEffect(()=>{

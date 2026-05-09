@@ -5,6 +5,7 @@ import {Routes,Route} from 'react-router-dom'
 import Item from "./components/Item";
 import Cart from "./components/Cart";
 import { DataContext } from "./context/CartContext";
+import Form from "./components/Form";
 
 function App() {
 
@@ -28,6 +29,7 @@ const {data} = useContext(DataContext);
           />
           <Route path="/item/:id" element={<Item />} />
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/form" element={<Form/>}/>
        </Routes> 
     </div>
   );

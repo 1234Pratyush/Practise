@@ -8,7 +8,7 @@ const Header = () => {
       const {cart} = useContext(DataContext);
       
 
-      console.log(data);
+     
       
 
   return (
