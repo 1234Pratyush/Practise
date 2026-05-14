@@ -14,7 +14,7 @@ const Header = () => {
           drop-shadow-lg
         "
       >
-        NETFLIX
+        CINEVO
       </h1>
     </div>
   );
