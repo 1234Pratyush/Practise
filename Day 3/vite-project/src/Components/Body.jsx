@@ -1,9 +1,11 @@
 import React from 'react'
+import Login from './Login'
 
 const Body = () => {
   return (
     <div>
-      this is body
+        <Login/>
+      
     </div>
   )
 }
