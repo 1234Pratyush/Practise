@@ -1,8 +1,4 @@
 import { useState } from "react";
-
-
-
-
 function App() {
 
    const [data,setData]  = useState({
@@ -23,13 +19,7 @@ function App() {
     e.preventDefault();
     console.log(data)
   }
-
-
-
   return (
-
-
-  
     <div className="min-h-screen w-full bg-gray-950 text-white flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-gray-900 p-8 rounded-2xl shadow-lg border border-gray-800">
         <h1 className="text-4xl font-bold text-center mb-8">
