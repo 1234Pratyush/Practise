@@ -5,9 +5,7 @@ import Header from "./Header";
 const Login = () => {
   const [isSignForm, setIsSignForm] = useState(true);
 
-  const handleButtonClick = ()=>{
-    
-  }
+  const handleButtonClick = () => {};
 
   const toggleSignInForm = () => {
     setIsSignForm(!isSignForm);
@@ -15,7 +13,6 @@ const Login = () => {
 
   return (
     <div className="relative h-screen w-full overflow-hidden">
-   
       <img
         src={netflixBg}
         alt="Netflix Background"
@@ -31,7 +28,6 @@ const Login = () => {
         "
       />
 
-     
       <div
         className="
           absolute
@@ -43,9 +39,7 @@ const Login = () => {
         "
       ></div>
 
-   
       <div className="relative z-10 h-full">
-      
         <Header />
 
         <div className="flex items-center justify-center h-[82vh]">
@@ -66,7 +60,6 @@ const Login = () => {
             </h1>
 
             <form className="flex flex-col gap-6">
-            
               {!isSignForm && (
                 <div className="flex flex-col gap-2">
                   <label className="text-gray-300 text-sm">Full Name</label>
@@ -92,8 +85,6 @@ const Login = () => {
                   />
                 </div>
               )}
-
-           
               <div className="flex flex-col gap-2">
                 <label className="text-gray-300 text-sm">Email Address</label>
 
@@ -118,7 +109,6 @@ const Login = () => {
                 />
               </div>
 
-           
               <div className="flex flex-col gap-2">
                 <label className="text-gray-300 text-sm">Password</label>
 
@@ -143,13 +133,11 @@ const Login = () => {
                 />
               </div>
 
-             
               <button
                 type="submit"
                 className="
                   bg-red-600
                   hover:bg-red-700
-                 
                   text-white
                   py-4
                   rounded-lg
@@ -167,7 +155,6 @@ const Login = () => {
                 {isSignForm ? "Sign In" : "Sign Up"}
               </button>
 
-            
               <div className="flex items-center justify-between text-sm mt-2">
                 <label className="flex items-center gap-2 text-gray-400">
                   <input type="checkbox" />
@@ -179,7 +166,6 @@ const Login = () => {
                 </span>
               </div>
 
-             
               <p className="text-gray-400 mt-6 text-sm text-center">
                 {isSignForm ? "New to Netflix? " : "Already registered? "}
 

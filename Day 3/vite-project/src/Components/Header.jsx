@@ -1,4 +1,3 @@
-
 const Header = () => {
   return (
     <div className="flex items-center justify-between px-14 py-6">
