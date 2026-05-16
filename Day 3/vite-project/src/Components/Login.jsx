@@ -1,11 +1,66 @@
 import { useState } from "react";
 import netflixBg from "../assets/images/netflix-bg.jpg";
 import Header from "./Header";
+import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
+import { auth } from "../utils/firebase";
 
 const Login = () => {
+
+  const navigate = useNavigate();
   const [isSignForm, setIsSignForm] = useState(true);
 
-  const handleButtonClick = () => {};
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = formData;
+
+    try {
+      if (isSignForm) {
+        const userCredential = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
+
+        console.log("Signed In User:", userCredential.user);
+        toast.success("Login Successful 🎉");
+      } else {
+        const userCredential = await createUserWithEmailAndPassword(
+          auth,
+          email,
+          password,
+        );
+
+        console.log("Signed Up User:", userCredential.user);
+        toast.success("Signup Successful 🎉")
+         setIsSignForm(true);
+      }
+    } catch (error) {
+      console.log(error.code);
+      console.log(error.message);
+      toast.error(error.message);
+    }
+  };
 
   const toggleSignInForm = () => {
     setIsSignForm(!isSignForm);
@@ -59,14 +114,17 @@ const Login = () => {
               {isSignForm ? "Sign In" : "Sign Up"}
             </h1>
 
-            <form className="flex flex-col gap-6">
+            <form className="flex flex-col gap-6" onSubmit={handleLogin}>
               {!isSignForm && (
                 <div className="flex flex-col gap-2">
                   <label className="text-gray-300 text-sm">Full Name</label>
 
                   <input
                     type="text"
+                    name="fullName"
                     placeholder="Enter your name"
+                    value={formData.fullName}
+                    onChange={handleChange}
                     className="
                       bg-gray-800/80
                       text-white
@@ -85,12 +143,16 @@ const Login = () => {
                   />
                 </div>
               )}
+
               <div className="flex flex-col gap-2">
                 <label className="text-gray-300 text-sm">Email Address</label>
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="
                     bg-gray-800/80
                     text-white
@@ -114,7 +176,10 @@ const Login = () => {
 
                 <input
                   type="password"
+                  name="password"
                   placeholder="Enter your password"
+                  value={formData.password}
+                  onChange={handleChange}
                   className="
                     bg-gray-800/80
                     text-white
@@ -150,7 +215,6 @@ const Login = () => {
                   transition-all
                   duration-300
                 "
-                onClick={handleButtonClick}
               >
                 {isSignForm ? "Sign In" : "Sign Up"}
               </button>
