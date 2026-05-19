@@ -2,7 +2,8 @@ import { useState } from "react";
 import netflixBg from "../assets/images/netflix-bg.jpg";
 import Header from "./Header";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
+import { firebaseErrorMessage } from "@/utils/firebaseError";
+
 
 import {
   createUserWithEmailAndPassword,
@@ -13,7 +14,7 @@ import { auth } from "../utils/firebase";
 
 const Login = () => {
 
-  const navigate = useNavigate();
+ 
   const [isSignForm, setIsSignForm] = useState(true);
 
   const [formData, setFormData] = useState({
@@ -57,8 +58,8 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error.code);
-      console.log(error.message);
-      toast.error(error.message);
+      const message = firebaseErrorMessage(error.code)
+      toast.error(message);
     }
   };
 
@@ -219,7 +220,7 @@ const Login = () => {
                 {isSignForm ? "Sign In" : "Sign Up"}
               </button>
 
-              <div className="flex items-center justify-between text-sm mt-2">
+              {/* <div className="flex items-center justify-between text-sm mt-2">
                 <label className="flex items-center gap-2 text-gray-400">
                   <input type="checkbox" />
                   Remember me
@@ -228,7 +229,7 @@ const Login = () => {
                 <span className="text-gray-400 hover:text-white cursor-pointer">
                   Forgot Password?
                 </span>
-              </div>
+              </div> */}
 
               <p className="text-gray-400 mt-6 text-sm text-center">
                 {isSignForm ? "New to Netflix? " : "Already registered? "}
