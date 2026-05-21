@@ -4,12 +4,15 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import MoviesDetails from "./MoviesDetails";
 import { GET_OPTIONS } from "./utils/constants";
+import { useDispatch } from "react-redux";
+import { addNowPlayingMovie } from "./utils/moviesSlice";
 
 
 
 const Movies = () => {
 
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const [movies,setMovies] = useState([]);
   
@@ -22,6 +25,7 @@ const Movies = () => {
           );
     
           console.log(response.data.results,"Now playing data ");
+          dispatch(addNowPlayingMovie(response.data.results))
           setMovies(response.data.results);
         } catch (error) {
           console.log(error);
