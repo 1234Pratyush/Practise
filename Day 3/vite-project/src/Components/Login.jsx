@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import netflixBg from "../assets/images/netflix-bg.jpg";
 import Header from "./Header";
 import { toast } from "sonner";
 import { firebaseErrorMessage } from "@/utils/firebaseError";
+import axios from "axios";
 
 
 import {
@@ -13,6 +14,9 @@ import {
 import { auth } from "../utils/firebase";
 
 const Login = () => {
+
+
+
 
  
   const [isSignForm, setIsSignForm] = useState(true);
@@ -180,6 +184,7 @@ const Login = () => {
                   name="password"
                   placeholder="Enter your password"
                   value={formData.password}
+                  autoComplete="current-password"
                   onChange={handleChange}
                   className="
                     bg-gray-800/80
