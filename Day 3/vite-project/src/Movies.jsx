@@ -1,39 +1,17 @@
-import Header from "./Components/Header";
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import MoviesDetails from "./MoviesDetails";
-import { GET_OPTIONS } from "./utils/constants";
-import { useDispatch } from "react-redux";
-import { addNowPlayingMovie } from "./utils/moviesSlice";
+import Header from "./Components/Header";
+import useNowPlayingMovies from "./hooks/useNowPlayingMovies";
+import { useState } from "react";
+import axios from "axios";
+
 
 
 
 const Movies = () => {
-
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    const [movies,setMovies] = useState([]);
+useNowPlayingMovies()
+ const navigate = useNavigate();
+ const [movies,setMovies] = useState([])
   
-    useEffect(() => {
-      const fetchMovies = async () => {
-        try {
-          const response = await axios.get(
-            "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
-            GET_OPTIONS,
-          );
-    
-          console.log(response.data.results,"Now playing data ");
-          dispatch(addNowPlayingMovie(response.data.results))
-          setMovies(response.data.results);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    
-      fetchMovies();
-    }, []);
 
 
   return (

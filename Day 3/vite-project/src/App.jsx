@@ -8,11 +8,6 @@ import Movies from "./Movies";
 import MoviesDetails from "./MoviesDetails";
 
 function App(){
-
-
-
- 
-
   return (
     <div>
       <Provider store={appStore}>
