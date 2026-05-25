@@ -2,7 +2,7 @@ import { GET_OPTIONS } from "@/utils/constants";
 import { addNowPlayingMovie } from "@/utils/moviesSlice";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+
 import axios from "axios";
 
 
@@ -32,5 +32,7 @@ const useNowPlayingMovies = ()=>{
       fetchMovies();
     }, [dispatch]);
 }
+
+
 
 export default useNowPlayingMovies
