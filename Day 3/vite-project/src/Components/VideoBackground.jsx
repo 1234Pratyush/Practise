@@ -12,7 +12,7 @@ const VideoBackground = ({ movie }) => {
     <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
       <iframe
         tabIndex="-1"
-        className="w-full h-full scale-[1.7] pointer-events-none"
+        className="w-full h-full scale-[1.4] pointer-events-none"
         src={
           "https://www.youtube.com/embed/" +
           trailerVideo.key +
