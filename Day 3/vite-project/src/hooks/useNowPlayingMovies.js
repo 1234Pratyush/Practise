@@ -21,7 +21,7 @@ const useNowPlayingMovies = ()=>{
             GET_OPTIONS,
           );
     
-          console.log(response.data.results,"Now playing data ");
+        
           dispatch(addNowPlayingMovie(response.data.results))
           setMovies(response.data.results);
         } catch (error) {

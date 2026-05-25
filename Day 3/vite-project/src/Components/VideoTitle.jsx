@@ -14,11 +14,17 @@ const VideoTitle = ({ movie }) => {
       </p>
 
       <div className="flex gap-4">
-        <button className="bg-white text-black px-6 py-3 rounded-md font-semibold text-lg hover:bg-gray-200 transition duration-300">
+        <button
+          className="bg-white text-black px-6 py-3 rounded-md cursor-pointer
+         font-semibold text-lg hover:bg-gray-200 transition duration-300"
+        >
           ▶ Play
         </button>
 
-        <button className="bg-gray-700/70 text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-gray-600 transition duration-300">
+        <button
+          className="bg-gray-700/70 cursor-pointer
+         text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-gray-600 transition duration-300"
+        >
           ℹ More Info
         </button>
       </div>
