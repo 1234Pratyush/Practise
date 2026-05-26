@@ -14,8 +14,6 @@ const MainContainer = () => {
       <VideoBackground movie={mainMovie} />
 
       <div className="absolute inset-0 bg-black/10 z-0"></div>
-
-    
       <div className="absolute inset-0 from-black via-black/40 to-transparent z-0"></div>
 
 

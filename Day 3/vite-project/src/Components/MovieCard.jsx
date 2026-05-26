@@ -6,15 +6,16 @@ const MovieCard = ({ posterPath }) => {
   return (
     <div
       className="
+    flex-shrink-0
     min-w-[250px] md:min-w-[280px]
-    rounded-md overflow-hidden cursor-pointer
+    rounded-2xl overflow-hidden cursor-pointer
     transition duration-300 hover:scale-105
   "
     >
       <img
         src={IMG_CDN + posterPath}
         alt="movie"
-        className="w-full h-[150px] object-cover"
+        className="w-full h-[350px] object-cover"
       />
     </div>
   );
