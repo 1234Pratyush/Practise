@@ -15,6 +15,8 @@ const Header = () => {
       >
         CINEVO
       </h1>
+
+      <button className="border py-2 px-2 rounded cursor-pointer bg-purple-500 hover:bg-purple-600 text-white">GPT Search</button>
     </div>
   );
 };

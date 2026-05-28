@@ -1,0 +1,1 @@
+export const SHOES_API = import.meta.env.VITE_SHOES_API;

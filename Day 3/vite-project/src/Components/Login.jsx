@@ -1,9 +1,9 @@
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import netflixBg from "../assets/images/netflix-bg.jpg";
 import Header from "./Header";
 import { toast } from "sonner";
 import { firebaseErrorMessage } from "@/utils/firebaseError";
-import axios from "axios";
+
 
 
 import {
