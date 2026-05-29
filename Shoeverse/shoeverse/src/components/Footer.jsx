@@ -1,84 +1,72 @@
-import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#071129] text-white mt-20">
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-14">
-        {/* About */}
+    <footer className="bg-black text-gray-300 mt-12">
+      <div className="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+    
         <div>
-          <h2 className="text-4xl font-extrabold mb-6">
-            Shoe<span className="text-blue-400">Verse</span>
+          <h2 className="text-2xl font-bold text-white">
+            Shoe<span className="text-blue-500">Verse</span>
           </h2>
 
-          <p className="text-gray-300 leading-9 text-lg">
-            Welcome to ShoeVerse, your one-stop destination for trendy and
-            comfortable footwear. We are committed to offering premium quality
-            shoes that blend fashion with comfort, helping you walk with
-            confidence every step of the way.
+          <p className="mt-3 text-sm leading-6">
+            Premium footwear designed for comfort, performance, and everyday
+            style.
           </p>
         </div>
 
-        {/* Contact */}
+      
         <div>
-          <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+          <h3 className="text-white font-semibold mb-3">Shop</h3>
 
-          <div className="space-y-5 text-gray-300 text-lg">
-            <p>
-              Have a question or need assistance? Reach out to our customer
-              support team anytime.
-            </p>
+          <ul className="space-y-2 text-sm">
+            <li className="hover:text-blue-400 cursor-pointer">
+              Running Shoes
+            </li>
 
-            <p className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              support@shoeverse.com
-            </p>
+            <li className="hover:text-blue-400 cursor-pointer">Sneakers</li>
 
-            <p className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              +91 9876543210
-            </p>
+            <li className="hover:text-blue-400 cursor-pointer">Sports Shoes</li>
 
-            <p>Dehradun, Uttarakhand, India</p>
+            <li className="hover:text-blue-400 cursor-pointer">New Arrivals</li>
+          </ul>
+        </div>
+
+       
+        <div>
+          <h3 className="text-white font-semibold mb-3">Contact</h3>
+
+          <div className="space-y-2 text-sm">
+            <p>support@shoeverse.com</p>
+            <p>+91 9876543210</p>
           </div>
         </div>
 
-        {/* Social Links */}
+      
         <div>
-          <h2 className="text-3xl font-bold mb-6">Follow Us</h2>
+          <h3 className="text-white font-semibold mb-3">Follow Us</h3>
 
-          <ul className="space-y-5 text-lg text-gray-300">
-            <li className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              Facebook
-            </li>
+          <ul className="space-y-2 text-sm">
+            <li className="hover:text-blue-400 cursor-pointer">Instagram</li>
 
-            <li className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              Instagram
-            </li>
+            <li className="hover:text-blue-400 cursor-pointer">Facebook</li>
 
-            <li className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              Twitter
-            </li>
+            <li className="hover:text-blue-400 cursor-pointer">LinkedIn</li>
 
-            <li className="hover:text-blue-400 transition duration-300 cursor-pointer">
-              LinkedIn
-            </li>
+            <li className="hover:text-blue-400 cursor-pointer">Twitter</li>
           </ul>
         </div>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="border-t border-gray-700">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-400 text-sm">
-            © 2026 ShoeVerse. All rights reserved.
-          </p>
+      <div className="border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+          <p>© 2026 ShoeVerse. All rights reserved.</p>
 
-          <div className="flex gap-6 text-sm text-gray-400">
-            <p className="hover:text-blue-400 cursor-pointer transition duration-300">
-              Terms of Service
-            </p>
+          <div className="flex gap-5 mt-2 md:mt-0">
+            <p className="hover:text-blue-400 cursor-pointer">Privacy Policy</p>
 
-            <p className="hover:text-blue-400 cursor-pointer transition duration-300">
-              Privacy Policy
+            <p className="hover:text-blue-400 cursor-pointer">
+              Terms & Conditions
             </p>
           </div>
         </div>
