@@ -2,9 +2,9 @@ import {useDispatch} from 'react-redux'
 import { setProduct } from '../redux/slices/productSlice';
 import { useEffect } from 'react';
 import axios from 'axios';
+import {SHOES_API} from '../utils/constants'
 
- 
-export const useProducts = ()=>{
+  const useProducts = ()=>{
 
   const dispatch = useDispatch();
 
@@ -13,9 +13,9 @@ export const useProducts = ()=>{
   const getProducts = async()=>{
 
     try{
-  const products = await axios.get('https://fakestoreapi.com/products')
-  dispatch(setProduct(products));
-  console.log(products)
+  const products = await axios.get(SHOES_API);
+  dispatch(setProduct(products.data));
+  console.log(products.data,"Data fro hook ")
     }
     catch(error){
         console.log(error.message);
@@ -24,3 +24,5 @@ export const useProducts = ()=>{
     },[dispatch])
 }
  
+
+export default useProducts
