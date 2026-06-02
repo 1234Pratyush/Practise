@@ -14,7 +14,7 @@ const Products = () => {
           Premium  Collection
         </h1>
 
-        <p className="text-gray-500 text-lg mb-8">Find your perfect pair</p>
+        <p className="text-gray-500 text-lg mb-8">Find your perfect item</p>
 
         <div className="w-full max-w-xl relative">
           <input

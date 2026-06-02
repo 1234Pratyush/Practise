@@ -1,6 +1,7 @@
 import CartAnimation from "../components/CartAnimation";
 import { useSelector,useDispatch } from "react-redux";
 import { clearCart } from "../redux/slices/cartSlice";
+import toast from "react-hot-toast";
 
 const Cart = () => {
 
@@ -8,6 +9,7 @@ const Cart = () => {
   const handleClearCart = () => {
 
      dispatch(clearCart())
+      toast.success("Cart cleared successfully!");
   };
   
   

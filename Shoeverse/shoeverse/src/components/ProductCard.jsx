@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
+import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
 
@@ -9,6 +10,7 @@ const dispatch = useDispatch();
 const handleAddToCart = ()=>{
      dispatch(addToCart(product))
      console.log("Item added to cart")
+     toast.success(`${product.title} added to cart!`);
 }
 
   const shortTitle =
