@@ -15,7 +15,7 @@ import {SHOES_API} from '../utils/constants'
     try{
   const products = await axios.get(SHOES_API);
   dispatch(setProduct(products.data));
-  console.log(products.data,"Data fro hook ")
+  // console.log(products.data,"Data fro hook ")
     }
     catch(error){
         console.log(error.message);

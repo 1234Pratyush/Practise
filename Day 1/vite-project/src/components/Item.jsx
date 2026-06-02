@@ -17,7 +17,7 @@ const Item = () => {
         try{
            const value = await fetch(`https://fakestoreapi.com/products/${id}`)
            const response = await value.json();
-           console.log(response);
+        
            setData(response);
         }
         catch(error){

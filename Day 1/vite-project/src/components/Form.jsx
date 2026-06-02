@@ -27,7 +27,7 @@ const Form = () => {
                password: "",
                description: "",
              });
-             console.log(data);
+           
   }
 
   return (
