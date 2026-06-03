@@ -11,7 +11,7 @@ const Products = () => {
     <div className="min-h-screen bg-slate-50 py-10 px-6">
       <div className="flex flex-col items-center mb-12">
         <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
-          Premium  Collection
+          Premium Collection
         </h1>
 
         <p className="text-gray-500 text-lg mb-8">Find your perfect item</p>

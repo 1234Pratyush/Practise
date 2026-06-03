@@ -4,22 +4,22 @@ import { Routes, Route } from "react-router-dom";
 import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
-import {Toaster} from 'react-hot-toast';
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Toaster position="top-right" />
       <Header />
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/home" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-
-      <main className="flex-grow"></main>
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Products />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/home" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
 
       <Footer />
     </div>

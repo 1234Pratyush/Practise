@@ -2,7 +2,7 @@
 
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-slate-900 text-white py-16 px-6">
+    <div className="bg-slate-900 text-white py-16 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex justify-center mb-10"></div>
 

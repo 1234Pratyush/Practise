@@ -3,15 +3,13 @@ import { addToCart } from "../redux/slices/cartSlice";
 import toast from "react-hot-toast";
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
 
- 
-const dispatch = useDispatch();
-
-const handleAddToCart = ()=>{
-     dispatch(addToCart(product))
-     console.log("Item added to cart")
-     toast.success(`${product.title} added to cart!`);
-}
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    console.log("Item added to cart");
+    toast.success(`${product.title} added to cart!`);
+  };
 
   const shortTitle =
     product.title.length > 35

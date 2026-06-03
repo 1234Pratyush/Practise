@@ -1,23 +1,25 @@
 import CartAnimation from "../components/CartAnimation";
-import { useSelector,useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../redux/slices/cartSlice";
 import toast from "react-hot-toast";
 
 const Cart = () => {
-
+  const products = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
   const handleClearCart = () => {
-
-     dispatch(clearCart())
-      toast.success("Cart cleared successfully!");
+      if (products.length === 0) {
+     toast.error("Your cart is already empty!");
+    }
+    else{
+ dispatch(clearCart());
+ toast.success("Cart cleared successfully!");
+    }
+   
+    
   };
-  
-  
-  const products = useSelector((store) => store.cart.items);
 
   return (
     <div className="min-h-screen bg-slate-100 py-10 px-6">
-      
       <div className="max-w-7xl mx-auto flex justify-between items-center mb-10">
         <h1 className="text-4xl font-bold text-slate-800">Shopping Cart</h1>
 
@@ -31,7 +33,6 @@ const Cart = () => {
         </button>
       </div>
 
-      
       {products.length === 0 ? (
         <div className="flex flex-col items-center justify-center mt-20">
           <div className="w-80">
@@ -48,14 +49,12 @@ const Cart = () => {
         </div>
       ) : (
         <>
-      
           <div className="max-w-7xl mx-auto mb-6">
             <p className="text-lg font-medium text-slate-600">
               {products.length} Items in Cart
             </p>
           </div>
 
-    
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {products.map((product) => (
               <div
