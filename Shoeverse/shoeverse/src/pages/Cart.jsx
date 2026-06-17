@@ -13,9 +13,7 @@ const Cart = () => {
     else{
  dispatch(clearCart());
  toast.success("Cart cleared successfully!");
-    }
-   
-    
+    } 
   };
 
   return (

@@ -5,6 +5,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import { Toaster } from "react-hot-toast";
+import Home from "./pages/Home";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <main className="flex-grow">
         <Routes>
+          <Route path="home" element={<Home />} />
           <Route path="/" element={<Products />} />
           <Route path="/products" element={<Products />} />
           <Route path="/home" element={<Products />} />
