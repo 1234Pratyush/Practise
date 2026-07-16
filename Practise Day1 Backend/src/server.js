@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import dotenv from 'dotenv';
 import userRoutes from './routes/user.route.js'
+import authroutes from "./routes/auth.route.js";
 
 
 dotenv.config();
@@ -13,7 +14,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
-app.use("/api/users",userRoutes);
+
+app.use("/api/auth", authroutes);
+app.use("/api/users", userRoutes);
 
 const startServer = async () => {
   try {
