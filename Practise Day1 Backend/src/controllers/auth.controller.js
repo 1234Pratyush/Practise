@@ -1,5 +1,6 @@
 import authModel from "../models/auth.model.js";
 import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken'
 
 
 export const signup = async(req,res)=>{
@@ -41,7 +42,9 @@ export const login = async(req,res)=>{
             return res.status(401).json({success:true,message:"Invalid Crediantials"})
         }
 
-        return res.status(200).json({success:true,message:"Login Successful",user});
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET_KEY,{expiresIn:"7d"})
+
+        return res.status(200).json({success:true,message:"Login Successful",token,user});
     }
     catch(error){
         return res.status(500).json({success:false,message:error.message});
