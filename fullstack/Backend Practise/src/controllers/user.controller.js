@@ -23,10 +23,10 @@ export const createUser = async(req,res)=>{
 export const getAllUsers = async(req,res)=>{
     try{
    const users = await User.find();
-   return res.status(200).json({message:true,data:users})
+   return res.status(200).json({success:true,data:users})
     }
     catch(error){
-      return  res.status(500).json({sucess:false,message:error.message});
+      return  res.status(500).json({success:false,message:error.message});
     }
 }
 
@@ -53,6 +53,6 @@ export const updateUser = async(req,res)=>{
             data:updateUser})
     }
     catch(error){
-        return res.status(500).json({message:false,message:error.message})
+        return res.status(500).json({success:false,message:error.message})
     }
 }
