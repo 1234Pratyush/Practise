@@ -1,16 +1,18 @@
 import { useState } from "react";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom'
+
 
 const Form = () => {
 
-
+   const navigate = useNavigate();
      const [form, setForm] = useState({
        fullName: "",
        email: "",
        phone: "",
        message: "",
      });
-
+     
      const handleChange = (e) => {
        setForm({
          ...form,
@@ -24,6 +26,7 @@ const Form = () => {
        try {
          const data = await axios.post(`${API}/users/create`, form);
          alert(data.data.message);
+         navigate("/allUsers");
 
          setForm({
            fullName: "",
@@ -31,6 +34,7 @@ const Form = () => {
            phone: "",
            email: "",
          });
+         
        } catch (error) {
          console.log("Error", error.message);
        }
@@ -108,6 +112,13 @@ const Form = () => {
            className="w-full bg-blue-600 text-white cursor-pointer py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300"
          >
            Submit
+         </button>
+         <button
+         onClick={()=>navigate('/allUsers')}
+           type="submit"
+           className="w-full bg-green-600 text-white cursor-pointer py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300"
+         >
+           All User
          </button>
        </form>
      </div>

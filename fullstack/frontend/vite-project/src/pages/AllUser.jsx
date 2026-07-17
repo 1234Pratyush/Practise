@@ -1,31 +1,40 @@
-import  { useEffect, useState } from "react";
-import axios from 'axios';
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AllUser = () => {
+  const navigate = useNavigate();
+  const [users, setUsers] = useState([]);
 
-    const [users,setUsers] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
 
-      const API = import.meta.env.VITE_API_URL;
-
-      useEffect(()=>{
-
+  useEffect(() => {
     const allUsers = async () => {
-   try {
-     const response = await axios.get(`${API}/users/allUsers`, users);
-     console.log(response.data.data);
-     setUsers(response.data.data);
-   } catch (error) {
-     console.log("ERROR", error.message);
-   }
- };allUsers()
+      try {
+        const response = await axios.get(`${API}/users/allUsers`);
+        
+        setUsers(response.data.data);
+      } catch (error) {
+        console.log("ERROR", error.message);
+      }
+    };
+    allUsers();
+  }, [API]);
 
-      },[API])
+  const deleteUser = async(id)=>{
+    try{
+          const response = await axios.delete(`${API}/users/delete/${id}`)
+    }
+    catch(error){
+      console.log(error.message);
+    }
 
- 
+  }
+
   return (
     <div className="min-h-screen bg-slate-100 py-10 px-6">
       <div className="max-w-7xl mx-auto">
-        {/* Heading */}
+      
         <div className="flex justify-between items-center mb-8">
           <div>
             <h1 className="text-4xl font-bold text-slate-800">All Users</h1>
@@ -34,12 +43,12 @@ const AllUser = () => {
             </p>
           </div>
 
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
+          <button onClick={()=>navigate("/")} className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white px-5 py-2 rounded-lg font-medium transition">
             + Add User
           </button>
         </div>
 
-        {/* Table */}
+       
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <table className="w-full">
             <thead className="bg-blue-600 text-white">
@@ -73,11 +82,14 @@ const AllUser = () => {
 
                   <td className="py-5 px-6">
                     <div className="flex justify-center gap-3">
-                      <button className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition">
+                      <button className="bg-green-500 cursor-pointer hover:bg-green-600 text-white px-4 py-2 rounded-lg transition"
+                      onClick={()=>navigate(`/edit/${user._id}`)}>
                         Edit
                       </button>
 
-                      <button className="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition">
+                      <button 
+                      onClick={()=>deleteUser(user._id)}
+                      className="bg-red-500 cursor-pointer hover:bg-red-600 text-white px-4 py-2 rounded-lg transition">
                         Delete
                       </button>
                     </div>

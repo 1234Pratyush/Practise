@@ -30,6 +30,17 @@ export const getAllUsers = async(req,res)=>{
     }
 }
 
+export const getUserById = async(req,res)=>{
+    try{
+    const user  = await User.findById(req.params.id);
+    return res.status(201).json({success:true,data:user})
+    }
+
+    catch(error){
+        return res.status(500).json({success:false,message:error.message});
+    }
+}
+
 
 
 export const deleteUser = async(req,res)=>{

@@ -39,14 +39,20 @@ export const login = async(req,res)=>{
 
         const comparePassword = await bcrypt.compare(password,user.password);
         if(!comparePassword){
-            return res.status(401).json({success:true,message:"Invalid Crediantials"})
+            return res.status(401).json({success:false,message:"Invalid Crediantials"})
         }
 
         const token = jwt.sign({id:user._id},process.env.JWT_SECRET_KEY,{expiresIn:"7d"})
+        
 
         return res.status(200).json({success:true,message:"Login Successful",token,user});
     }
     catch(error){
         return res.status(500).json({success:false,message:error.message});
     }
+}
+
+export const logout = async(req,res)=>{
+    res.clearCookie("token");
+    return res.status(200).json({success:true,message:"Logged out successfully"})
 }
