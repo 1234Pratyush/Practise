@@ -1,11 +1,112 @@
-import React from 'react'
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  return (
-    <div className='font-bold text-4xl'>
-      signup page 
-    </div>
-  )
-}
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
 
-export default Signup
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("/auth/signup", formData);
+      console.log(response.data.user);
+      navigate("/");
+    } catch (error) {
+      console.log(error.response?.data?.message);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4 bg-zinc-900">
+      <div className="w-full max-w-md bg-zinc-800 border border-zinc-700 rounded-2xl shadow-2xl p-8">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-bold text-white">Create Account</h1>
+          <p className="text-gray-400 mt-2">Sign up to continue</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Enter your name"
+              className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Email
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              onChange={handleChange}
+              value={formData.email}
+              placeholder="Enter your email"
+              className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-300 mb-2">
+              Password
+            </label>
+
+            <input
+              type="password"
+              name="password"
+              onChange={handleChange}
+              value={formData.password}
+              placeholder="Enter your password"
+              className="w-full rounded-lg border border-zinc-600 bg-zinc-900 px-4 py-3 text-white placeholder:text-gray-500 outline-none transition focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full cursor-pointer rounded-lg bg-emerald-600 py-3 font-semibold text-white transition hover:bg-emerald-700"
+          >
+            Sign Up
+          </button>
+        </form>
+
+        <div className="my-6 flex items-center">
+          <div className="flex-1 border-t border-zinc-600"></div>
+          <span className="px-3 text-sm text-gray-500">OR</span>
+          <div className="flex-1 border-t border-zinc-600"></div>
+        </div>
+
+        <p className="text-center text-gray-400">Already have an account?</p>
+
+        <Link to="/">
+          <button className="mt-4 w-full cursor-pointer rounded-lg border border-emerald-500 py-3 font-semibold text-emerald-400 transition hover:bg-emerald-600 hover:text-white">
+            Login
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;
