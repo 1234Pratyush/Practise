@@ -14,7 +14,7 @@ export const create = async(req,res)=>{
           "name",
         );
         return res
-          .status(200)
+          .status(201)
           .json({
             success: true,
             message: "Todo created successfully",
@@ -25,3 +25,32 @@ export const create = async(req,res)=>{
         return res.status(500).json({success:false,message:error.message});
     }
 }
+
+export const getAllTodo = async(req,res)=>{
+    try{
+       const todo = await Todo.find({createdBy:req.user._id}).populate("createdBy" , "name");
+      
+       return res.status(200).json({success:true,message:"All todos",data:todo})
+    }
+    catch(error){
+        return res.status(500).json({message:error.message});
+    }
+}
+
+export const deleteTodo = async(req,res)=>{
+          try{
+      const {id} = req.params;
+
+             const deleteTodo = await Todo.findByIdAndDelete(id)
+             return res.status(200).json({success:true ,message:"Todo Deleted Successfully"})
+
+
+          }
+          catch(error){
+            return res.status(500).json({success:true,message:error.message})
+          }
+   
+
+}
+
+
