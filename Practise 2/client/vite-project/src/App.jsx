@@ -1,6 +1,8 @@
 import {Routes,Route} from 'react-router-dom'
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Todo from './pages/Todo';
+import MyTodos from './pages/MyTodos';
 
 function App(){
   return (
@@ -8,6 +10,8 @@ function App(){
       <Routes>
         <Route path="/" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/todo" element={<Todo />}></Route>
+        <Route path="/my-todos" element={<MyTodos />}></Route>
       </Routes>
     </div>
   );

@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import api from "../api/axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
 
-  const handleChange = async (e) => {
+  const handleChange =  (e) => {
     setLogin({
       ...login,
       [e.target.name]: e.target.value,
@@ -20,6 +22,8 @@ const Login = () => {
     try {
       const response = await api.post("/auth/login", login);
       console.log(response.data.user);
+      navigate('/todo')
+      
     } catch (error) {
       console.log(error.response?.data?.message);
     }
