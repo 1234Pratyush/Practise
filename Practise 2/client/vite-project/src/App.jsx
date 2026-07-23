@@ -3,6 +3,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Todo from './pages/Todo';
 import MyTodos from './pages/MyTodos';
+import EditTodo from './pages/EditTodo';
 
 function App(){
   return (
@@ -12,6 +13,7 @@ function App(){
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/todo" element={<Todo />}></Route>
         <Route path="/my-todos" element={<MyTodos />}></Route>
+        <Route path="/edit-todos/:id" element={<EditTodo />}></Route>
       </Routes>
     </div>
   );
