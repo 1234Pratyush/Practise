@@ -26,7 +26,21 @@
 # print(len(name))
 
 
-str2="Hi $Iam the $ symbol $99.90"
-print("$ is ocuuring",str2.count("$"),"times")
+# str2="Hi $Iam the $ symbol $99.90"
+# print("$ is ocuuring",str2.count("$"),"times")
+
+
+num1 = int(input("enter your first number:"))
+num2 = int(input("enter your first number:"))
+num3 = int(input("enter your first number:"))
+
+if(num1 > num2 and num1 > num3):
+    print("num1 is greater")  
+elif(num2 > num1 and num2 > num3):
+    print("num2 is greater")
+else:
+    print("num3 is greater")
+
+
 
 
