@@ -1,7 +1,5 @@
-a = 12  
-# b = -5
-# c = a%b
-# print(c)
+num1   = int(input("number 1 :"))
+# num2 = int(input("number 2 :"))
 
-# name = input("name : ")
-# print(name)
+# sum = num1 ** num2
+# print("Sum of two number is :",sum)
