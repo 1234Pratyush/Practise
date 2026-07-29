@@ -1,17 +1,24 @@
-// const a = 5;
-// const b = 2;
+// const a = 6;
+// const b = 7;
 
-// console.log( a / b);
-// console.log(a ** b);
-// console.log(a % b);
-// console.log(a++);
+// cond1= a < b;
+// cond2= b<a
+// console.log(cond1 || cond2)
 
-let a = 6 ;
-const b =  a++;
-console.log(b);
-console.log(a);
+let age = 89;
 
-let c = 4;
-let d = ++c;
-console.log(c);
-console.log(d);
+if(age > 18 && age <=80){
+    console.log("You can vote")
+}
+else if(age >80){
+    console.log("You are too old to vote")
+}
+else{
+    console.log("you cannot vote")
+}
+
+
+let height = false
+
+ const result = height ?"You have a good height":"Not a good height"
+ console.log(result);
