@@ -6,6 +6,7 @@ const Card = ({ image, category, title, description, price, rating }) => {
           src={image}
           alt={title}
           className="h-40 object-contain transition duration-300 group-hover:scale-105"
+          loading="lazy"
         />
 
         <span className="absolute left-5 top-5 rounded-full bg-violet-600 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-white">

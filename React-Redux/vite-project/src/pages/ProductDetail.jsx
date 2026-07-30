@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -33,6 +33,7 @@ const ProductDetail = () => {
                 src={productDetails.images?.[0]}
                 alt=""
                 className="h-full object-contain"
+                loading="lazy"
               />
             </div>
           </div>
