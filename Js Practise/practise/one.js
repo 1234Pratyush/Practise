@@ -13,6 +13,7 @@
 
 let str = "helllo byy"
 console.log(typeof(str));
+console.log(str.toLocaleUpperCase())
 
 let num = 24;
 console.log(typeof(num))
@@ -32,4 +33,14 @@ let obj ={
 }
 
 let output = `this is my ${obj.name} and is of ${obj.price} ruppes`
+console.log(output)
+console.log(output.toLocaleUpperCase())
+console.log(output.toLocaleLowerCase())
+
+let alpha = "abcdefgh";
+console.log(alpha.slice(2,5))
+
+let username = prompt("Enter you username without whitespaces :")
+
+output = "@" + username + username.length;
 console.log(output)
