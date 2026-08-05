@@ -6,6 +6,6 @@ console.log(companies);
 console.log(companies.push("Amazon"))
 console.log(companies)
 
-companies.splice(2,1,"Delloite");
+companies.splice(2,1,"Delloite","hexaware");
 console.log(companies);
 console.log(companies.length)
