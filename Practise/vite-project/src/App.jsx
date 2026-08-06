@@ -2,10 +2,14 @@
 import Increment from "./components/Increment";
 import Decrement from "./components/Decrement";
 import {useSelector} from 'react-redux'
+import { useProducts } from "./hooks/useProducts";
+import ProductCard from "./components/ProductCard";
+import {Route,Routes} from 'react-router-dom'
 
 function App() {
  const user = useSelector((state)=>state.counter.items)
- console.log(user)
+ useProducts()
+
 
   return (
     <div className="min-h-screen bg-zinc-900 text-white">
@@ -16,6 +20,10 @@ function App() {
       </div>
 
       <div className="flex gap-4"></div>
+
+      <Routes>
+        <Route path="products" element={<ProductCard/>}></Route>
+      </Routes>
     </div>
   );
 }
