@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { decrement } from "../redux/slice/counter/counterSlice";
+import { decrement } from "../redux/slice/counterSlice";
 
 const Decrement = () => {
   const dispatch = useDispatch();

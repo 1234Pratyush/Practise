@@ -9,7 +9,7 @@ export const useProducts = () => {
     const getProducts = async () => {
       try {
         const response = await axios.get("https://dummyjson.com/products");
-          console.log(response.data.products);
+         
         dispatch(setProduct(response.data.products));
 
       

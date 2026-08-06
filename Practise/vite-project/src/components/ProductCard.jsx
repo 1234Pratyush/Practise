@@ -2,14 +2,26 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slice/cartSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ProductCard = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const products = useSelector((state) => state.products.items);
 
-  console.log(products);
+ 
 
-  return (
+return (
+  <>
+    <div className="flex justify-end px-10 mt-5">
+      <button
+        className="bg-black text-white px-4 py-2 rounded-lg cursor-pointer"
+        onClick={() => navigate("/cart")}
+      >
+        🛒 Cart
+      </button>
+    </div>
+
     <div className="flex flex-wrap gap-8 justify-center mt-10">
       {products.map((product) => (
         <div
@@ -54,7 +66,8 @@ const ProductCard = () => {
         </div>
       ))}
     </div>
-  );
+  </>
+);
 };
 
 export default ProductCard;

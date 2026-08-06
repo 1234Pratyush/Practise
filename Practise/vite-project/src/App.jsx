@@ -5,6 +5,7 @@ import {useSelector} from 'react-redux'
 import { useProducts } from "./hooks/useProducts";
 import ProductCard from "./components/ProductCard";
 import {Route,Routes} from 'react-router-dom'
+import Cart from "./pages/Cart";
 
 function App() {
  const user = useSelector((state)=>state.counter.items)
@@ -22,7 +23,8 @@ function App() {
       <div className="flex gap-4"></div>
 
       <Routes>
-        <Route path="products" element={<ProductCard/>}></Route>
+        <Route path="/products" element={<ProductCard/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
       </Routes>
     </div>
   );
